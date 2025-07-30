@@ -1,0 +1,51 @@
+1. Project Setup
+Create a new Java project in your IDE (e.g., Eclipse, IntelliJ).
+Define a proper package structure (e.g., com.example.db).
+
+
+🔹 2. Add JDBC Dependency
+If using Maven, add MySQL JDBC dependency in pom.xml.
+If not using Maven, download the MySQL JDBC .jar and add it to the project’s build path.
+
+
+🔹 3. Create Enum Singleton Class
+Define an enum with a single instance (INSTANCE).
+In the constructor, initialize the database connection using DriverManager.
+
+
+🔹 4. Create DAO Class
+Create a class (e.g., UserDAO) that uses the singleton instance to perform DB operations.
+Use the getConnection() method from the singleton enum.
+
+
+🔹 5. Create Main Class for Testing
+Create a Main class to:
+Call DAO methods.
+Verify if only one DB connection instance is used.
+
+
+🔹 6. Create Database and Table in MySQL
+Open MySQL client or GUI tool (e.g., phpMyAdmin).
+Create a database (e.g., testdb).
+Create a table (e.g., users) with sample columns.
+
+
+🔹 7. Run the Application
+Execute the Main class.
+Observe console output to ensure:
+Connection is established once.
+Operations (like insert) are successful.
+Singleton instance is reused.
+
+
+🔹 8. Optional: Test in Multiple Classes
+Use the singleton in other classes/services to confirm the same connection object is used everywhere.
+
+
+🔹 9. Validate with HashCode (Optional)
+Print the hashcode of connection objects in different classes to verify singleton behavior.
+
+
+🔹 10. Exception Handling
+Add try-catch for SQL exceptions and print meaningful error messages.
+Ensure resources (statements, result sets) are closed properly.
